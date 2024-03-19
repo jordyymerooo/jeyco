@@ -1,0 +1,49 @@
+{% load static %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand me-auto" href="/">
+      <img src="{% static 'portfolio/logo.png' %}" alt="Logo" style="height: 60px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <a class="navbar-brand me-auto" href="/">
+          <img src="{% static 'portfolio/usa.png' %}" href="/" alt="Button 1" style="height: 40px;">
+        </a>
+        <a class="navbar-brand me-auto" href="{% url 'hogar' %}">
+          <img src="{% static 'portfolio/ecu.png' %}" alt="Button 2" style="height: 40px;">
+        </a>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#servicios">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'posts' %}">Portfolio</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Enviar">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#ubicacion">Location</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+  $(document).ready(function(){
+      $('.navbar-toggler').on('click', function(){
+          $(this).toggleClass('active');
+      });
+  });
+</script>

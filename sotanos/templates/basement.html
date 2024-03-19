@@ -1,0 +1,41 @@
+{% extends 'layoutservicio.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <nav class="navbar navbar-light bg-light mb-4">
+        <div class="container-fluid">
+            <div class="navbar-brand">Service Navigation</div>
+            <div class="d-flex">
+                <a href="{% url 'molding' %}" class="btn btn-primary me-2">Previus</a>
+                <a href="{% url 'carpentry' %}" class="btn btn-primary">Next</a>
+            </div>
+        </div>
+    </nav>
+    <h1 class="text-center mb-5">Finished basements jobs</h1>
+    <div class="row justify-content-center">
+        {% for basement in basements %}
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card shadow" style="min-height: 320px;">
+                <div class="card-body d-flex flex-column justify-content-between" style="padding: 20px;">
+                    <div>
+                        <div style="max-height: 200px; overflow: hidden;">
+                            {% if basement.image %}
+                            <img src="{{ basement.image.url }}" class="card-img-top" alt="" style="width: 100%;">
+                            {% endif %}
+                            {% if basement.video %}
+                                <div style="max-height: 200px; overflow: hidden;">
+                                    <video class="video-fluid" controls style="width: 100%;">
+                                        <source src="{{ basement.video.url }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            {% endif %}
+                    <p class="card-text text-center mb-3" style="font-size: 1rem;"><strong>{{ basement.description }}</strong></p> 
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

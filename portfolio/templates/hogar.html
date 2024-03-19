@@ -1,0 +1,199 @@
+{% extends 'diseño.html' %} {% load static %} {% block content%} 
+<header>
+  <div class="navbar-brand" href="">
+    <div id="cover-section" class="cover d-flex justify-content-center align-items-center flex-column">
+      <h1>JAYCOCONSTRUCTION LLC</h1>
+      <p>Contratista de mejoras para el hogar</p>
+      <p>Licencia de demolicion</p>
+      <a id="btn-conoce-mas" class="btn btn-primary marked" href="#quienessomos">Ver mas</a>
+    </div>
+    <section id="servicios" class="custom-servicios">
+      <div class="container mt-5 mb-5">
+        <h2 class="text-center">Nuestros Servicios</h2>
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card custom-card">
+              <img src="{% static 'portfolio/decks.jpg' %}" class="card-img-top" alt="Trabajo de cubiertas">
+              <div class="card-body">
+                <h5 class="card-title">Cubiertas</h5>
+                <a href="{% url 'cubierta' %}" class="btn btn-primary">Ver mas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card custom-card">
+              <img src="{% static 'portfolio/puertas y ventanas.jpg' %}" class="card-img-top" alt="Trabajos de puertas y ventanas">
+              <div class="card-body">
+                <h5 class="card-title">Puertas y ventanas</h5>
+                <a href="{% url 'puertaventana' %}" class="btn btn-primary">Ver mas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card custom-card">
+              <img src="{% static 'portfolio/moldes.jpg' %}" class="card-img-top" alt="Trabajo de molduras">
+              <div class="card-body">
+                <h5 class="card-title">Todo tipos de molduras</h5>
+                <a href="{% url 'moldura' %}" class="btn btn-primary">Ver mas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card custom-card">
+              <img src="{% static 'portfolio/rsz_sotano.jpg' %}" class="card-img-top" alt="Trabajo de sotanos">
+              <div class="card-body">
+                <h5 class="card-title">Sotanos Terminados</h5>
+                <a href="{% url 'sotano' %}" class="btn btn-primary">Ver mas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card custom-card">
+              <img src="{% static 'portfolio/rsz_carpinteria.jpg' %}" class="card-img-top" alt="Trabajos de carpinteria">
+              <div class="card-body">
+                <h5 class="card-title">Carpinteria</h5>
+                <a href="{% url 'carpinteria' %}" class="btn btn-primary">Ver mas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card custom-card">
+              <img src="{% static 'portfolio/rsz_1siding.jpg' %}" class="card-img-top" alt="Trabajo de revestimiento">
+              <div class="card-body">
+                <h5 class="card-title">Revestimientos</h5>
+                <a href="{% url 'revestimiento' %}" class="btn btn-primary">Ver mas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card custom-card">
+              <img src="{% static 'portfolio/demolicion.jpg' %}" class="card-img-top" alt="Trabajo de demolicion">
+              <div class="card-body">
+                <h5 class="card-title">Demolicion</h5>
+                <a href="{% url 'demolicion' %}" class="btn btn-primary">Ver mas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card custom-card">
+              <img src="{% static 'portfolio/snow.jpeg' %}" class="card-img-top" alt="Limpieza de nieve">
+              <div class="card-body">
+                <h5 class="card-title">Limpieza de Nieve</h5>
+                <a href="{% url 'nieve' %}" class="btn btn-primary">Ver mas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="quienessomos" class="about-container mt-5 mb-5">
+      <div class="card about-card">
+          <div class="card-body">
+              <h2>Acerca de JAYCOCONSTRUCTION LLC</h2>
+              <p>Jeyco Construction, fundada por un Ecuatoriano apasionado por la construcción, se ha ganado una sólida reputación en los Estados Unidos. Con un enfoque en la calidad, la eficiencia y la atención al detalle, Jeyco ofrece una amplia gama de servicios de construcción y carpintería. Desde decks y puertas hasta molduras y sótanos terminados, Jeyco realiza trabajos impecables y rápidos. También se especializan en revestimientos, demolición y limpieza de nieve. Si buscas resultados de alta calidad en construcción y carpintería, no busques más. 
+                ¡Contacta a Jeyco para tus próximos proyectos!.</p>
+          </div>
+          <div class="card-img-container">
+              <img src="{% static 'portfolio/perfil.jpeg' %}" alt="Acerca de nosotros">
+          </div>
+      </div>
+  </section>
+  <section class="contactanos" id="Enviar">
+    <form id="contactForm" method="POST" action="{% url 'contact' %}" autocomplete="off">
+      {% csrf_token %}
+      <h2 class="text-center">Contactanos</h2>
+      <div class="input-group">
+        <input type="text" name="name" id="name" placeholder="Nombre" required />
+        <input type="email" name="email" id="email" placeholder="Email" required />
+        <input type="text" name="subject" id="subject" placeholder="Asunto" required />
+        <textarea name="message" id="message" rows="5" placeholder="Mensaje" required></textarea>
+        <button type="submit" class="btn1 rounded-pill" id="submitButton">Enviar</button>
+        <button type="button" class="btn-green rounded-pill" id="whatsappButton">Contactanos en WhatsApp</button>
+      </div>
+    </form>
+</section>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      // Validar campos
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var subject = document.getElementById("subject").value;
+      var message = document.getElementById("message").value;
+  
+      if (name === "" || email === "" || subject === "" || message === "") {
+        alert("Por favor, complete todos los campos.");
+        event.preventDefault(); // Evita que se envíe el formulario
+      }
+    });
+  </script>
+  <script>
+    document.getElementById("whatsappButton").addEventListener("click", function() {
+      // Reemplaza 'NUMERO_EMPRESA' con el número de teléfono de la empresa
+      var telefono = "+593988008653";
+      // Construye el enlace de WhatsApp con el número de teléfono
+      var url = "https://wa.me/" + telefono;
+      // Redirige a la URL de WhatsApp
+      window.location.href = url;
+    });
+    </script>
+  <section id="ubicacion" class="map-section container mt-5 mb-5">
+    <div class="ubicacion-card card rounded shadow" style="background: linear-gradient(to bottom, #492310, #2d0c05);">
+      <div class="card-body">
+        <h2 class="card-title text-center text-white">Nuestra Ubicacion</h2>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2988.399437519757!2d-72.8262715884009!3d41.49561807116653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7c9462323c047%3A0x92c61ccc93c0d28c!2s49%20Hanover%20St%2C%20Wallingford%2C%20CT%2006492%2C%20EE.%20UU.!5e0!3m2!1ses-419!2sec!4v1709403236652!5m2!1ses-419!2sec"
+            width="100%"
+            height="400"
+            style="border: 25"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="project-container">
+    <div class="project-container">
+      <div class="project-card">
+          {% for proyecto in proyectos %}
+          <div class="project-slide {% if forloop.first %}active{% endif %}">
+              <div class="project-content">
+                  <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);">
+                      <img class="card-img-top" src="{{ proyecto.image.url }}" alt="{{ proyecto.title }}">
+                      <h1 class="title text-white">Mis proyectos</h1>
+                      <h3 class="project-title" style="border: 1px solid black; padding: 5px;">{{ proyecto.title }}</h3>
+
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+  
+  <button class="prev" onclick="plusSlides(-1)" {% if projects|length == 1 %}style="display: none;"{% endif %}>&#10094;</button>
+  <button class="next" onclick="plusSlides(1)" {% if projects|length == 1 %}style="display: none;"{% endif %}>&#10095;</button>
+</section>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var slides = document.getElementsByClassName("project-slide");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "flex";
+    }
+</script>
+</header>
+
+{% for message in messages %} {% endfor %} {% endblock %}
